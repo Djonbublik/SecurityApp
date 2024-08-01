@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.spring_basic_auth_example.service.PaymentServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-01T06:35:48" hostname="WIN-5U1SEOJ4VOI" time="0.083">
+  <properties/>
+  <testcase name="Test create" classname="com.example.spring_basic_auth_example.service.PaymentServiceTest" time="0.083"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

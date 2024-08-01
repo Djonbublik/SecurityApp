@@ -19,9 +19,8 @@ public class PublicController {
     private final PaymentService paymentService;
 
     @PostMapping(value = "/account")
-    public ResponseEntity<String> createNewAccount(@RequestBody UserCreateDto userCreateDto, @RequestParam RoleType roleType){
+    public void createNewAccount(@RequestBody UserCreateDto userCreateDto, @RequestParam RoleType roleType){
         userService.create(userCreateDto, Role.from(roleType));
-        return ResponseEntity.ok("User create");
     }
 
     @PostMapping("/payment")

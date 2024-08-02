@@ -33,10 +33,10 @@ public class UserController {
         return ResponseEntity.ok("User update");
     }
 
-    @GetMapping("/payments")
+   @GetMapping("/payments")
     @PreAuthorize("hasAnyAuthority('ROLE_USER')")
     public Page<PaymentDto> getPayments(@AuthenticationPrincipal UserDetails userDetails, @RequestBody Integer page){
-        return userService.getUserPayment(page - 1,10, userDetails);
+        return userService.getUserPayment(page - 1,10, userDetails.getUsername());
     }
 
     @DeleteMapping()

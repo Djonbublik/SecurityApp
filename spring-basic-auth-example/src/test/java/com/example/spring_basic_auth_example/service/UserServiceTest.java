@@ -158,6 +158,33 @@ public class UserServiceTest {
         assertEquals(userCreateDto.getUsername(), user.getUsername());
     }
 
+    @Test
+    @DisplayName("Test get user payments")
+    public void testGetUserPayments(){
+        String username = "+79831803329";
+        User user = new User();
+        user.setId(1L);
+        user.setBalance(5000L);
+        user.setUsername(username);
+        user.setName("bublik");
+        user.setEmail("bublik@mail.ru");
+        user.setGender(true);Payment payment = new Payment();
+        payment.setAmount(500L);
+        payment.setDate(new Date());
+        payment.setUser(user);
+
+        Set<Payment> payments  = new HashSet<>();
+        payments.add(payment);
+
+        user.setPayments(payments);
+
+        when(userRepository.findByUsername(user.getUsername())).thenReturn(Optional.of(user));
+
+        Page<PaymentDto> paymentsUser = userService.getUserPayment(1,10,username);
+
+        assertEquals(1, paymentsUser.getTotalElements());
+    }
+
 
 
 

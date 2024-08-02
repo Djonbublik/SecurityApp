@@ -114,8 +114,8 @@ public class UserService {
             }
     }
 
-    public Page<PaymentDto> getUserPayment(int page, int size, UserDetails userDetails){
-        User user = userRepository.findByUsername(userDetails.getUsername()).orElseThrow();
+   public Page<PaymentDto> getUserPayment(int page, int size, String username){
+        User user = userRepository.findByUsername(username).orElseThrow();
         List<PaymentDto> paymentDtoList = user.getPayments()
                 .stream()
                 .map(PaymentService::mapToDto).toList();

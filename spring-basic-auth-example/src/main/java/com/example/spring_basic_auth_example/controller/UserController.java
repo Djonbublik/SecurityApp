@@ -18,10 +18,8 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
 
-
     private final UserServiceImpl userServiceImpl;
     private final PaymentServiceImpl paymentServiceImpl;
-
 
     @GetMapping
     @PreAuthorize("hasAnyAuthority('ROLE_USER')")

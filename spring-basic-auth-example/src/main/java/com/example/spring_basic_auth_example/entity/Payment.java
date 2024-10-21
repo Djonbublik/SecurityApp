@@ -24,7 +24,7 @@ public class Payment {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "username")
+    @JoinColumn(name = "userId")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private User user;

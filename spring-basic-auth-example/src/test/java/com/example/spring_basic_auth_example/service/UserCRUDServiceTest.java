@@ -75,7 +75,6 @@ public class UserCRUDServiceTest {
     public void testCreate() {
         UserCreateDto userCreateDto = new UserCreateDto();
         String username = "+73133803311";
-
         userCreateDto.setUsername(username);
         userCreateDto.setName("bublik");
         userCreateDto.setEmail("bublik@mail.ru");
@@ -162,6 +161,7 @@ public class UserCRUDServiceTest {
     public void testGetUserPayments(){
         int pageNumber = 1;
         int pageSize = 5;
+
         String username = "+79831803329";
         User user = new User();
         user.setId(1L);

@@ -17,5 +17,5 @@ public class PaymentDto {
 
     private  Long amount;
 
-    private String numberPhone;
+    private String username;
 }

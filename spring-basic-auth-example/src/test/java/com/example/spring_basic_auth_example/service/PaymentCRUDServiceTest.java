@@ -29,13 +29,13 @@ public class PaymentCRUDServiceTest {
     @Test
     @DisplayName("Test create")
     public void testCreate(){
+        String username = "+79831803329";
         PaymentDto paymentDto = new PaymentDto();
         paymentDto.setId(1L);
         paymentDto.setAmount(500L);
         paymentDto.setDate(new Date());
-        paymentDto.setUsername("+79831803329");
+        paymentDto.setUsername(username);
 
-        String username = "+79831803329";
         User user = new User();
         user.setId(1L);
         user.setBalance(5000L);

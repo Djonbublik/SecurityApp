@@ -22,13 +22,15 @@ import java.util.regex.Pattern;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService <UserCreateDto> {
-    public static final Long START_BALANCE = 100000L;
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final PaymentRepository paymentRepository;
     private final PaymentServiceImpl paymentService;
 
+    public static final Long START_BALANCE = 100000L;
     Pattern patternEmail = Pattern.compile("^(.+)@(\\S+)$");
+
 
     public UserDto getByUsername(String username) {
         return mapToDto(userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException(" Username not found!")));
@@ -119,9 +121,9 @@ public class UserServiceImpl implements UserService <UserCreateDto> {
     public Page<PaymentDto> getUserPayment(int pageNumber, int pageSize, String username) {
         if (pageNumber > 0 && pageSize > 0) {
 
-            final Pageable contactsPageable = PageRequest.of(pageNumber - 1, pageSize);
+            final Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
 
-            return (paymentRepository.findByUser(contactsPageable, findByUsername(username))).map(i -> paymentService.mapToDto(i));
+            return (paymentRepository.findByUser(pageable, findByUsername(username))).map(i -> paymentService.mapToDto(i));
         }
         throw new NumberFormatException("Select the page from 1 to 20 and the page size should be more than 0");
     }

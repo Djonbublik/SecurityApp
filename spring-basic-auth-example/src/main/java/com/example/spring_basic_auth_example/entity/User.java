@@ -25,19 +25,19 @@ public class User {
 
     private String email;
 
-    private Boolean gender;
+    private Boolean gender; //true = male, false = female
 
     private Date birthday;
 
     private Long balance;
+
+    private String password;
 
     @JsonBackReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Set<Payment> payments;
-
-    private String password;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude

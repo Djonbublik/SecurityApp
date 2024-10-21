@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +22,7 @@ public class PaymentServiceImpl implements PaymentService<PaymentDto> {
     private final PaymentRepository paymentRepository;
     private final UserRepository userRepository;
 
+    ReadWriteLock lock = new ReentrantReadWriteLock();
 
     @Transactional
     @Lock(LockModeType.PESSIMISTIC_WRITE)
@@ -29,6 +32,12 @@ public class PaymentServiceImpl implements PaymentService<PaymentDto> {
         if(user.getBalance() > paymentDto.getAmount() && paymentDto.getAmount() > 0){
             paymentRepository.saveAndFlush(mapToEntity(paymentDto, user));
             user.setBalance(user.getBalance() - paymentDto.getAmount());
+            lock.writeLock().lock();
+            try {
+                userRepository.saveAndFlush(user);
+            } finally {
+            lock.writeLock().unlock();
+        }
             userRepository.saveAndFlush(user);
         }else {
             System.out.println("Error! Check the balance and the amount of the charge");

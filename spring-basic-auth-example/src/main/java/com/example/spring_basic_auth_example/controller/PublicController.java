@@ -1,31 +1,24 @@
 package com.example.spring_basic_auth_example.controller;
 
-import com.example.spring_basic_auth_example.entity.Role;
-import com.example.spring_basic_auth_example.entity.RoleType;
-import com.example.spring_basic_auth_example.model.PaymentDto;
 import com.example.spring_basic_auth_example.model.UserCreateDto;
-import com.example.spring_basic_auth_example.service.PaymentService;
-import com.example.spring_basic_auth_example.service.UserService;
+import com.example.spring_basic_auth_example.service.PaymentServiceImpl;
+import com.example.spring_basic_auth_example.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/public")
 @RequiredArgsConstructor
 public class PublicController {
 
-    private final UserService userService;
-    private final PaymentService paymentService;
+    private final UserServiceImpl userServiceImpl;
+    private final PaymentServiceImpl paymentServiceImpl;
 
     @PostMapping(value = "/account")
-    public void createNewAccount(@RequestBody UserCreateDto userCreateDto, @RequestParam RoleType roleType){
-        userService.create(userCreateDto, Role.from(roleType));
-    }
-
-    @PostMapping("/payment")
-    public ResponseEntity<String> createPayment(@RequestBody PaymentDto paymentDto){
-        paymentService.create(paymentDto);
-        return ResponseEntity.ok("The payment was successful");
+    public void createNewAccount(@RequestBody UserCreateDto userCreateDto){
+        userServiceImpl.create(userCreateDto);
     }
 }

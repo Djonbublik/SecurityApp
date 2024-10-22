@@ -3,6 +3,7 @@ package com.example.spring_basic_auth_example.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,25 +13,32 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "app_user")
+@Table(name = "users")
 @RequiredArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name="username", unique=true, length = 12, nullable = false)
     private String username;
 
+    @Column(name="name", nullable = false)
     private String name;
 
+    @Column(name="email", unique=true, length = 100, nullable = false)
     private String email;
 
+    @Column(name="gender", nullable = false)
     private Boolean gender; //true = male, false = female
 
+    @Column(name="birthday", nullable = false)
     private Date birthday;
 
+    @Column(name="balance", nullable = false)
     private Long balance;
 
+    @Column(name="password", nullable = false)
     private String password;
 
     @JsonBackReference

@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
-
+import org.hibernate.annotations.CreationTimestamp;
 import java.util.Date;
 
 @Entity
@@ -18,8 +18,12 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
+    @CreationTimestamp
+    @Column(name = "date")
     private Date date;
 
+    @Column(name = "amount")
     private  Long amount;
 
     @JsonBackReference

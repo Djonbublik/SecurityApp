@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService <UserCreateDto> {
     public User mapToEntity(UserCreateDto userCreateDto) {
         User user = new User();
 
-        Pattern patternUsername = Pattern.compile("^\\+([0-9\\-]?){9,11}[0-9]$");
+        Pattern patternUsername = Pattern.compile("^\\+7\\d{10}$");
         Matcher matcherUsername = patternUsername.matcher(userCreateDto.getUsername());
 
         Matcher matcherEmail = patternEmail.matcher(userCreateDto.getEmail());

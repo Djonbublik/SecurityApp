@@ -1,5 +1,6 @@
 package com.example.spring_basic_auth_example.service;
 
+import com.example.spring_basic_auth_example.entity.Gender;
 import com.example.spring_basic_auth_example.entity.Payment;
 import com.example.spring_basic_auth_example.entity.User;
 import com.example.spring_basic_auth_example.model.PaymentDto;
@@ -43,7 +44,7 @@ public class UserCRUDServiceTest {
         user.setUsername(username);
         user.setName("bublik");
         user.setEmail("bublik@mail.ru");
-        user.setGender(true);
+        user.setGender(Gender.FEMALE);
         user.setPayments(Set.of());
         when(userRepository.findByUsername(user.getUsername())).thenReturn(Optional.of(user));
         UserDto userDto = userServiceImpl.getByUsername(user.getUsername());
@@ -61,7 +62,7 @@ public class UserCRUDServiceTest {
         user.setUsername(username);
         user.setName("bublik");
         user.setEmail("bublik@mail.ru");
-        user.setGender(true);
+        user.setGender(Gender.FEMALE);
         user.setPayments(Set.of());
         when(userRepository.findByUsername(user.getUsername())).thenReturn(Optional.of(user));
         User user1 = userRepository.findByUsername(username).orElseThrow();
@@ -78,7 +79,7 @@ public class UserCRUDServiceTest {
         userCreateDto.setUsername(username);
         userCreateDto.setName("bublik");
         userCreateDto.setEmail("bublik@mail.ru");
-        userCreateDto.setGender(true);
+        userCreateDto.setGender(Gender.FEMALE);
 
 
         userServiceImpl.create(userCreateDto);
@@ -93,7 +94,7 @@ public class UserCRUDServiceTest {
         userCreateDto.setUsername(username);
         userCreateDto.setName("bublik");
         userCreateDto.setEmail("bublik@mail.ru");
-        userCreateDto.setGender(true);
+        userCreateDto.setGender(Gender.FEMALE);
         User user = new User();
         user.setUsername(userCreateDto.getUsername());
 
@@ -113,7 +114,7 @@ public class UserCRUDServiceTest {
         user.setUsername(username);
         user.setName("bublik");
         user.setEmail("bublik@mail.ru");
-        user.setGender(true);
+        user.setGender(Gender.FEMALE);
         user.setPayments(Set.of());
         when(userRepository.findByUsername(user.getUsername())).thenReturn(Optional.of(user));
         userServiceImpl.delete(user.getUsername());
@@ -131,7 +132,7 @@ public class UserCRUDServiceTest {
         user.setUsername(username);
         user.setName("bublik");
         user.setEmail("bublik@mail.ru");
-        user.setGender(true);
+        user.setGender(Gender.FEMALE);
         user.setPayments(Set.of());
         UserDto userDto1 = userServiceImpl.mapToDto(user);
         UserDto userDto = new UserDto();
@@ -150,7 +151,7 @@ public class UserCRUDServiceTest {
         userCreateDto.setUsername(username);
         userCreateDto.setName("bublik");
         userCreateDto.setEmail("bublik@mail.ru");
-        userCreateDto.setGender(true);
+        userCreateDto.setGender(Gender.FEMALE);
         User user = userServiceImpl.mapToEntity(userCreateDto);
 
         assertEquals(userCreateDto.getUsername(), user.getUsername());
@@ -169,7 +170,7 @@ public class UserCRUDServiceTest {
         user.setUsername(username);
         user.setName("bublik");
         user.setEmail("bublik@mail.ru");
-        user.setGender(true);
+        user.setGender(Gender.FEMALE);
         Payment payment = new Payment();
         payment.setAmount(500L);
         payment.setDate(new Date());

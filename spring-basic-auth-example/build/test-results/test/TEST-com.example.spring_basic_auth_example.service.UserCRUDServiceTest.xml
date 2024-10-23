@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-22T11:21:53" hostname="WIN-5U1SEOJ4VOI" time="0.081">
+<testsuite name="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-10-23T05:12:12" hostname="WIN-5U1SEOJ4VOI" time="0.1">
   <properties/>
-  <testcase name="Test get user payments" classname="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" time="0.081"/>
+  <testcase name="Test find by Username" classname="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" time="0.061"/>
+  <testcase name="Test map to Entity" classname="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" time="0.003"/>
+  <testcase name="Test map to dto" classname="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" time="0.001"/>
+  <testcase name="Test create" classname="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" time="0.004"/>
+  <testcase name="Test User delete" classname="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" time="0.002"/>
+  <testcase name="Test user update" classname="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" time="0.003"/>
+  <testcase name="Test getByUsername" classname="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" time="0.006"/>
+  <testcase name="Test get user payments" classname="com.example.spring_basic_auth_example.service.UserCRUDServiceTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

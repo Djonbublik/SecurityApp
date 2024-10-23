@@ -1,5 +1,6 @@
 package com.example.spring_basic_auth_example.model;
 
+import com.example.spring_basic_auth_example.entity.Gender;
 import com.example.spring_basic_auth_example.entity.Role;
 import com.example.spring_basic_auth_example.entity.RoleType;
 import lombok.Data;
@@ -16,7 +17,7 @@ public class UserCreateDto {
 
     private String email;
 
-    private Boolean gender; //true = male, false = female
+    private Gender gender;
 
     private Date birthday;
 

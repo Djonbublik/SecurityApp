@@ -20,7 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="username", unique=true, length = 12, nullable = false)
+    @Column(name="username", unique=true, nullable = false)
     private String username;
 
     @Column(name="name", nullable = false)
@@ -30,7 +30,7 @@ public class User {
     private String email;
 
     @Column(name="gender", nullable = false)
-    private Boolean gender; //true = male, false = female
+    private Gender gender;
 
     @Column(name="birthday", nullable = false)
     private Date birthday;

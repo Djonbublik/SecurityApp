@@ -37,8 +37,7 @@ public class PaymentServiceImpl implements PaymentService<PaymentDto> {
                 userRepository.saveAndFlush(user);
             } finally {
             lock.writeLock().unlock();
-        }
-            userRepository.saveAndFlush(user);
+            }
         }else {
             System.out.println("Error! Check the balance and the amount of the charge");
         }

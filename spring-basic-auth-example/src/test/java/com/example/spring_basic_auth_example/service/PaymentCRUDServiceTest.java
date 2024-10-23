@@ -1,5 +1,6 @@
 package com.example.spring_basic_auth_example.service;
 
+import com.example.spring_basic_auth_example.entity.Gender;
 import com.example.spring_basic_auth_example.entity.Payment;
 import com.example.spring_basic_auth_example.entity.User;
 import com.example.spring_basic_auth_example.model.PaymentDto;
@@ -42,7 +43,7 @@ public class PaymentCRUDServiceTest {
         user.setUsername(username);
         user.setName("bublik");
         user.setEmail("bublik@mail.ru");
-        user.setGender(true);
+        user.setGender(Gender.FEMALE);
         user.setPayments(Set.of());
         when(userRepository.findByUsername(user.getUsername())).thenReturn(Optional.of(user));
         paymentServiceImpl.create(paymentDto, paymentDto.getUsername());
